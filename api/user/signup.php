@@ -10,7 +10,7 @@ if ($_POST["username"] && $_POST["password"] && $_POST["email"] && $_POST["avata
         exit();
     }
 
-    if (strlen($_POST['password']) < 6 || !preg_match('@[A-Z]@', $_POST['password']) || preg_match('@[0-9]@', $_POST['password'])) {
+    if (!preg_match('/(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/', $_POST["password"])) {
         header("INVALID PASSWORD", true, 400);
         exit();
     }

@@ -16,17 +16,18 @@ if ($_POST["newPassword"] && $_POST["confirmPassword"] && $_POST["currentPasswor
     $user_id = json_decode($payloadDecoded)->user_id;
  
     //performing test for the current passowrd, making sure it is valid
-    if (strlen($currentPassword) < 6 || !preg_match('@[A-Z]@', $currentPassword) || preg_match('@[0-9]@', $currentPassword)) {
+    if (!preg_match('/(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/', $currentPassword)) {
+        echo 2;
         header("INVALID PASSWORD", true, 400);
         exit();
     }
     //performing test for the new passowrd, making sure it is valid
-    if (strlen($newPassword) < 6 || !preg_match('@[A-Z]@', $newPassword) || preg_match('@[0-9]@', $newPassword)) {
+    if (!preg_match('/(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/', $newPassword)) {
         header("INVALID PASSWORD", true, 400);
         exit();
     }
     //performing test for the new passowrd's confirmed value, making sure it is valid
-    if (strlen($confirmPassword) < 6 || !preg_match('@[A-Z]@', $confirmPassword) || preg_match('@[0-9]@', $confirmPassword)) {
+    if (!preg_match('/(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/', $confirmPassword)) {
         header("INVALID PASSWORD", true, 400);
         exit();
     }

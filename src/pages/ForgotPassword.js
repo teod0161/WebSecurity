@@ -24,7 +24,7 @@ export default class ForgotPassword extends Component {
                 email: email.value
             })).then(response => {
                 if (response.status === 200) {
-                    window.location.href = '/';
+                   window.location.href = '/';
                 }
             });
         } catch (err) {
