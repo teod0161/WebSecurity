@@ -18,9 +18,9 @@ export default (BaseComponent, restricted) => {
             if (!process.env.REACT_APP_API_URL) {
                 throw new Error('REACT_APP_API_URL missing')
             }
-            let url = 'http://localhost:8888';
+            let url = 'http://localhost:8888/api';
 
-            if (process.env.REACT_APP_API_URL === 'http://68.183.71.52:8888/api') {
+            if (process.env.REACT_APP_API_URL === 'http://68.183.71.52:8888') {
                 url = 'http://68.183.71.52:8888'
             }
             try {

@@ -11,22 +11,22 @@ if ($_POST["email"] && $_POST["password"] && $_POST["captcha"]) {
     
     //the necessary information for the captcha check
     //basically on the backend, the test for making sure the captcha is valid is made
-    $captcha = $_POST["captcha"];
+    /*$captcha = $_POST["captcha"];
     $key = "6LeJhYIUAAAAALlsFny-_wZEXFPrp9JZx6Mum-36";
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $params = array(
         'secret' => $key,
         'response' => $captcha
     );
-    
+
     //initiate the connection
     $ch = curl_init();
-    
+
     curl_setopt($ch, CURLOPT_URL, $url); //set the API link (to Google's own for recaptcha)
     curl_setopt($ch, CURLOPT_POST, 1); //signal I want the request to be of POST type
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params)); //set the params
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //this tells the request not to echo anything back, aside from the essential fields
-    
+
     //execute the post request
     $resultRecaptcha = curl_exec($ch);
 
@@ -36,14 +36,14 @@ if ($_POST["email"] && $_POST["password"] && $_POST["captcha"]) {
     }
 
     //this takes place in case the recaptcha call to the API fails and google send back that the authentificated user is not real
-    if (json_decode($resultRecaptcha)->success === false) { 
+    if (json_decode($resultRecaptcha)->success === false) {
         header("FAILED OPERATION", false, 500);
         curl_close($ch);
         exit();
     }
-       
+
     //close the connection
-    curl_close($ch);
+    curl_close($ch);*/
 
         try {
             //prepared statement for the user's login
